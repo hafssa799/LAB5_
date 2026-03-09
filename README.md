@@ -120,16 +120,16 @@ Thanks for all the fish
 
 Ce laboratoire permet de comprendre les bases du reverse engineering Android.
 
-- Les étapes principales sont :
+ * Les étapes principales sont :
 
-# analyser l’interface utilisateur
+  -analyser l’interface utilisateur
 
-# examiner le code Java avec JADX
+  -examiner le code Java avec JADX
 
-# identifier les fonctions natives
+  -identifier les fonctions natives
 
-# analyser la bibliothèque .so avec Ghidra
+  -analyser la bibliothèque .so avec Ghidra
 
-# retrouver le secret caché
+  -retrouver le secret caché
 
--Cette approche montre comment certaines applications déplacent leur logique critique dans du code natif afin de rendre l’analyse plus difficile.
+Cette approche montre comment certaines applications déplacent leur logique critique dans du code natif afin de rendre l’analyse plus difficile.
