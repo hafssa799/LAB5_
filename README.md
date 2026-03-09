@@ -7,14 +7,16 @@ Date : 09/03/2026
 Outils utilisés : ADB, JADX, Ghidra, Python, PowerShell
 
 
-1. Présentation du laboratoire
+
+# 1. Présentation du laboratoire
 
 L’objectif de ce laboratoire est d’analyser une application Android protégée afin de comprendre comment elle vérifie une clé secrète.
 Pour cela, nous utilisons des outils de reverse engineering afin d’examiner à la fois le code Java et le code natif (.so).
 
 L’application étudiée est UnCrackable-Level2, qui cache son mécanisme de vérification dans une bibliothèque native.
 
-2. Exploration initiale de l’application
+# 2. Exploration initiale de l’application
+
 # Étape 1 — Installation et exécution de l’APK
 
 La première étape consiste à installer l’application sur l’émulateur ou l’appareil Android.
@@ -30,7 +32,7 @@ Commande :
 Ensuite, l’application est lancée pour observer son comportement.
 Elle affiche un champ permettant de saisir un secret.
 
-3. Analyse du code Java
+# 3. Analyse du code Java
 # Étape 2 — Décompilation avec JADX
 
 Pour examiner la structure Java de l’application, on utilise JADX, un outil qui permet de reconstruire le code source à partir d’un APK.
@@ -49,7 +51,7 @@ Dans la classe MainActivity, on observe que la saisie utilisateur est envoyée v
 
 Cette classe semble responsable de la vérification du secret.
 
-4. Identification de la vérification
+# 4. Identification de la vérification
 # Étape 4 — Repérer l’appel de validation dans MainActivity 
 
 En examinant cette classe, on remarque que la méthode bar() est déclarée comme native.
@@ -57,7 +59,7 @@ En examinant cette classe, on remarque que la méthode bar() est déclarée comm
 ![](https://github.com/user-attachments/assets/0e51d2d2-17be-41d7-bbef-f06b0c9faac7)
 Cela signifie que la logique principale n’est pas écrite en Java, mais dans une bibliothèque native compilée en C/C++.
 
-5. Extraction de la bibliothèque native
+# 5. Extraction de la bibliothèque native
 # Étape 5 — Identifier la classe qui effectue la vérification
 
 ![](https://github.com/user-attachments/assets/4e5e6220-6774-4458-87f0-3802578ca3fb)
@@ -85,12 +87,13 @@ Observation Ghidra génère :
 - le pseudo-code
 - la liste des fonctions exportées
   
-7. Compréhension de la vérification
+# 6. Compréhension de la vérification
+
 # Étape 8 — Chercher la fonction JNI liée à bar
 
 ![](https://github.com/user-attachments/assets/926f17d1-cbb6-4b87-b2ef-36dcc5afa1e8)
 
-8. Décodage du secret
+# 7. Décodage du secret
 
 Dans certains cas, la chaîne peut être stockée en hexadécimal.
 
@@ -104,7 +107,7 @@ Résultat :
 
 hsif eht lla 
 Thanks for all the fish
-9. Résultat obtenu
+# 8. Résultat obtenu
 
 Le secret attendu par l’application est :
 
@@ -112,7 +115,7 @@ Merci pour tous les poissons
 
 En entrant cette phrase dans l’application, la validation est acceptée.
 
-10. Conclusion
+# 9. Conclusion
 
 Ce laboratoire permet de comprendre les bases du reverse engineering Android.
 
