@@ -1,8 +1,9 @@
-LAB 5 — Analyse de l’application Android UnCrackable-Level2
+# LAB 5 — Analyse de l’application Android UnCrackable-Level2
 
-Étudiante : Wissal MOKDAD
-Date : 08/03/2026
-Outils utilisés : ADB, JADX, Ghidra, Python, PowerShell
+                                                        -- Étudiante : Wissal MOKDAD
+                                                        -- Date : 08/03/2026
+                                                        -- Outils utilisés : ADB, JADX, Ghidra, Python, PowerShell
+
 
 1. Présentation du laboratoire
 
@@ -69,31 +70,22 @@ La bibliothèque native libfoo.so est prête pour l’analyse statique
 
 # Étape 7 — Importer libfoo.so dans Ghidra
 
-Dans la liste des fonctions, on recherche le symbole :
+# Lancer Ghidra :
+<img width="599" height="54" alt="image" src="https://github.com/user-attachments/assets/9b9448c0-84b9-432c-b4f5-230b2c45c964" />
+# Créer un nouveau projet
+<img width="584" height="419" alt="image" src="https://github.com/user-attachments/assets/e6fb8b00-4d12-4c95-adbc-149f2ff6f456" />
+# Importateur :libfoo.so
+<img width="485" height="106" alt="image" src="https://github.com/user-attachments/assets/43b70ded-6442-46af-8032-a87e4660a600" />
 
-Java_sg_vantagepoint_uncrackable2_CodeCheck_bar
-
-Cette fonction correspond à l’implémentation native de la méthode Java :
-
-CodeCheck.bar()
+# Analyse Lancer Auto
+Observation Ghidra génère :
+- le pseudo-code
+- la liste des fonctions exportées
+  
 7. Compréhension de la vérification
 # Étape 8 — Chercher la fonction JNI liée à bar
 
-Le pseudo-code montre que l’entrée utilisateur est comparée avec une chaîne spécifique.
-
-La comparaison est réalisée avec la fonction :
-
-strncmp()
-
-Exemple observé :
-
-strncmp(__s1, local_30, 0x17);
-
-__s1 : entrée utilisateur
-
-local_30 : chaîne secrète stockée dans la bibliothèque
-
-Si les chaînes correspondent sur 23 caractères, la fonction retourne 1, sinon 0.
+<img width="935" height="359" alt="image" src="https://github.com/user-attachments/assets/926f17d1-cbb6-4b87-b2ef-36dcc5afa1e8" />
 
 8. Décodage du secret
 
@@ -107,16 +99,7 @@ print(ascii_text)
 
 Résultat :
 
-hsif eht lla rof sknahT
-
-Cette chaîne est inversée.
-On peut la remettre dans le bon sens :
-
-secret = ascii_text[::-1]
-print(secret)
-
-Résultat :
-
+hsif eht lla 
 Thanks for all the fish
 9. Résultat obtenu
 
