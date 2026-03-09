@@ -99,36 +99,37 @@ Dans certains cas, la chaîne peut être stockée en hexadécimal.
 
 Exemple de conversion avec Python :
 
-# hex_data = "6873696620656874206c6c6120726f6620736b6e616854"
-# ascii_text = bytes.fromhex(hex_data).decode("ascii")
-# print(ascii_text)
+    hex_data = "6873696620656874206c6c6120726f6620736b6e616854"
+    ascii_text = bytes.fromhex(hex_data).decode("ascii")
+    print(ascii_text)
 
 Résultat :
 
 hsif eht lla 
 Thanks for all the fish
+
 # 8. Résultat obtenu
 
-Le secret attendu par l’application est :
+-Le secret attendu par l’application est :
 
-Merci pour tous les poissons
+-Merci pour tous les poissons
 
-En entrant cette phrase dans l’application, la validation est acceptée.
+-En entrant cette phrase dans l’application, la validation est acceptée.
 
 # 9. Conclusion
 
 Ce laboratoire permet de comprendre les bases du reverse engineering Android.
 
-Les étapes principales sont :
+- Les étapes principales sont :
 
-analyser l’interface utilisateur
+# analyser l’interface utilisateur
 
-examiner le code Java avec JADX
+# examiner le code Java avec JADX
 
-identifier les fonctions natives
+# identifier les fonctions natives
 
-analyser la bibliothèque .so avec Ghidra
+# analyser la bibliothèque .so avec Ghidra
 
-retrouver le secret caché
+# retrouver le secret caché
 
-Cette approche montre comment certaines applications déplacent leur logique critique dans du code natif afin de rendre l’analyse plus difficile.
+-Cette approche montre comment certaines applications déplacent leur logique critique dans du code natif afin de rendre l’analyse plus difficile.
